@@ -1,0 +1,62 @@
+server:
+  port: 80
+  context-path:  #发布目录
+  error:
+    include-stacktrace: always
+logging:
+  config: classpath:logback-spring.xml
+spring:
+  http:
+    multipart:
+      max-file-size: 50Mb
+      max-request-size: 1000Mb
+    encoding:
+      charset: UTF-8
+      enabled: true
+  aop:
+    proxy-target-class: false
+  datasource:
+    name: recycle_web
+    url: jdbc:mysql://rm-wz9ttvlu93xj133zu8o.mysql.rds.aliyuncs.com:3306/recycle_web?useUnicode=true&amp;characterEncoding=utf8mb4
+    username: niuniu
+    password: ZX@2018ueker
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    host: 127.0.0.1
+    password:
+    port: 6379
+    timeout: 7200
+  data: #mongodb
+    mongodb:
+      host: 127.0.0.1
+      database: mongo_db
+      port: 27017
+#自定义
+com:
+   recycle:
+      site:
+        host: http://www.test.com
+        staticHost: http://www.test.com  #静态资源服务器
+        whiteDomainList: localhost,test.com
+        siteDirPath:
+        uploadDir: upload/
+        session: recycle_session
+   api:
+      cm: #运营商
+         partner_code: xynn_mohe #测试
+         partner_key: 1ca74b1bb18747fd87ae61f1ced5a0a0 #测试
+      bg: #贷前审核
+         partner_code: xynn        #测试
+         partner_key: a1247afc3dd249d2bee88e67ee807c13  #测试
+         app_name: xynn_web  #测试
+      im: #活体校验
+         partner_code: xxxxxxxxxxx
+         partner_key: xxxxxxxxxxxx
+      sms: #短信
+         account: gzagrz  #正式
+         pass: 94FCDD5F006BF9FEA2DA0F2E35D01903 #正式
+
+
+
+
